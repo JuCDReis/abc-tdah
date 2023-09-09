@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meu site</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="./img/logo.png">
+    <nav>  
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="abecedario.html">Abecedário</a></li>
+        <li><a href="num.html">Números</a></li>
+        <li><a href="desenho.html">Desenhos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <title>Letra A</title>
+  <style>
+    .dotted {
+      text-decoration: underline dotted;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function strikeThrough() {
+      var dottedText = document.getElementById("dotted-text");
+      dottedText.style.textDecoration = "line-through";
+      dottedText.style.cursor = "default";
+    }
+    
+    function checkAnswers() {
+      var syllablesInput = document.getElementById("syllables-input").value;
+      var vowelsInput = document.getElementById("vowels-input").value;
+      var consonantsInput = document.getElementById("consonants-input").value;
+      
+      var correctSyllables = 2; // Coloque o número correto de sílabas aqui
+      var correctVowels = 2; // Coloque o número correto de vogais aqui
+      var correctConsonants = 2; // Coloque o número correto de consoantes aqui
+      
+      var resultDiv = document.getElementById("result");
+      
+      if (syllablesInput == correctSyllables && vowelsInput == correctVowels && consonantsInput == correctConsonants) {
+        resultDiv.innerHTML = "Respostas corretas!";
+      } else {
+        resultDiv.innerHTML = "Respostas incorretas. Tente novamente.";
+      }
+    }
+  </script>
+<div class="centro">
+<div class="container-a">
+      <img src="./let/b.png" alt="Imagem 1"><p>
+      </div>
+    
+      
+
+ <div class="container-b">
+  <form onsubmit="event.preventDefault(); checkAnswers();">
+    <ul>
+      <p>Quantas sílabas a palavra possui? <input type="number" id="syllables-input"></p>
+      <p>Quantas vogais a palavra possui? <input type="number" id="vowels-input"></p>
+      <p>Quantas consoantes a palavra possui? <input type="number" id="consonants-input"></p>
+    </ul>
+    <input type="submit" value="Verificar Respostas"> 
+  </form>
+  
+  <div id="result"></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ABC TDAH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <img src="./img/logo.png">
+      <nav>  
+        <ul>
+          <li><a href="Index.html">Inicio</a></li>
+          <li><a href="abecedario.html">Abecedário</a></li>
+          <li><a href="num.html">Números</a></li>
+          <li><a href="desenho.html">Desenhos</a></li>
+        </ul>
+      </nav>
+      </header>
+    
+    
+<body>
+  <h3>Página do Desenho</h3>
+  
+  <div class="centro">
+    <div class="container-a">
+      <img src="./img/borboleta.png" alt="Imagem 1"><p>
+      </div>
+
+
+    <div class="questions">
+      <h2>Perguntas:</h2>
+      <ul>
+        <li>Qual é o nome do desenho? <input type="text" id="name-input"></li>
+        <li>Quantas consoantes? <input type="number" id="consonants-input"></li>
+        <li>Quantas vogais? <input type="number" id="vowels-input"></li>
+        <li>Quantas sílabas? <input type="number" id="syllables-input"></li>
+      </ul>
+      
+      <button onclick="checkAnswers()">Verificar Respostas</button>
+      <p id="result"></p>
+    </div>
+  </div>
+  
+  <script>
+  
+    function checkAnswers() {
+      var nameInput = document.getElementById("name-input").value;
+      var consonantsInput = parseInt(document.getElementById("consonants-input").value);
+      var vowelsInput = parseInt(document.getElementById("vowels-input").value);
+      var syllablesInput = parseInt(document.getElementById("syllables-input").value);
+      
+      var correctName = "borboleta";
+      var correctConsonants = 5; ///consoantes
+      var correctVowels = 4;  ///vogais
+      var correctSyllables = 4;   ///silabas
+      
+      var resultDiv = document.getElementById("result");
+      
+      if (nameInput.toLowerCase() === correctName && consonantsInput === correctConsonants && vowelsInput === correctVowels && syllablesInput === correctSyllables) {
+        resultDiv.innerHTML = "Respostas corretas!";
+      } else {
+        resultDiv.innerHTML = "Respostas incorretas. Tente novamente.";
+      }
+    }
+  </script>
+</body>
+</html>

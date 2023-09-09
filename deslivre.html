@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ABC TDAH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <img src="./img/logo.png">
+      <nav>  
+        <ul>
+          <li><a href="Index.html">Inicio</a></li>
+          <li><a href="abecedario.html">Abecedário</a></li>
+          <li><a href="num.html">Números</a></li>
+          <li><a href="desenho.html">Desenhos</a></li>
+        </ul>
+      </nav>
+      </header>
+
+  <title>Tela de Desenhos</title>
+  <style>
+    #canvas {
+      border: 1px solid black;
+    }
+  </style>
+
+<body>
+  <h1>Tela de Desenhos</h1>
+  
+  <canvas id="canvas" width="800" height="500"></canvas>
+  
+  <div>
+    <label for="color">Cor:</label>
+    <input type="color" id="color" value="#000000">
+  
+    <button onclick="eraseDrawing()">Apagar</button>
+  </div>
+  
+  <script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var isDrawing = false;
+    
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseout", stopDrawing);
+    
+    function startDrawing(event) {
+      isDrawing = true;
+      draw(event);
+    }
+    
+    function draw(event) {
+      if (!isDrawing) return;
+      
+      var x = event.clientX - canvas.offsetLeft;
+      var y = event.clientY - canvas.offsetTop;
+      
+      var color = document.getElementById("color").value;
+      
+      context.beginPath();
+      context.strokeStyle = color;
+      context.lineWidth = 5;
+      context.lineCap = "round";
+      context.moveTo(x, y);
+      context.lineTo(x, y);
+      context.stroke();
+    }
+    
+    function stopDrawing() {
+      isDrawing = false;
+    }
+    
+    function eraseDrawing() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>
