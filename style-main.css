@@ -121,4 +121,27 @@ body{
 
 .rodape{
     padding: 2em;
+    background-color: #DEF4F0;
+}
+
+/* abc */
+
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 2em 0em;
+}
+
+.item > img {
+    width:15vw;
+}
+
+.i1 {
+    background-color: #fdaed6 ;
+}
+.i2 {
+    background-color: #f8db7c ;
+}
+.i3 {
+    background-color: #c8b6ff ;
 }
