@@ -145,3 +145,44 @@ body{
 .i3 {
     background-color: #c8b6ff ;
 }
+
+/* atv */
+.container-atv{
+    padding: 4em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-atv > img {
+    border-radius: 1em;
+}
+
+.questions{
+    color: #fff;
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.question{
+    background-color: #caddda83;
+    padding: 4em 2em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+}
+
+.input-ans{
+    border-radius: 0.5em;
+    border: 0em;
+    padding: 1em;
+    margin-top:1em;
+}
+
+.btn-next{
+    border-radius: 0.5em;
+    border: 0em;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
