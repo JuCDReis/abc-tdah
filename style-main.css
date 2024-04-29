@@ -187,3 +187,15 @@ body{
     font-size: 1.1em;
 }
 
+.desenhos{
+    overflow-x: scroll;
+}
+.d{
+    width:fit-content;
+    border-radius: 1em;
+}
+
+.d > img{
+    border-radius: 1em;
+    width: 20vw;
+}
