@@ -3,6 +3,14 @@ const itens = document.querySelectorAll('.option');
 
 storageAtv();
 
+for (const item of itens) {
+    item.addEventListener("click", () => {
+        const itemId = item.getAttribute('id');
+        storageItem(itemId);
+        window.location.href = "./atv.html";
+    })
+}
+
 
 function storageAtv() {
     localStorage.removeItem('qualAtv');
@@ -25,12 +33,4 @@ function storageAtv() {
 function storageItem(item) {
     localStorage.removeItem('item');
     localStorage.setItem('item', item);
-}
-
-for (const item of itens) {
-    item.addEventListener("click", () => {
-        const itemId = item.getAttribute('id');
-        storageItem(itemId);
-        window.location.href = "./atv.html";
-    })
 }
