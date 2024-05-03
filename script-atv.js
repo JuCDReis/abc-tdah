@@ -1,7 +1,10 @@
 const qualAtv = localStorage.getItem('qualAtv');
 const item = localStorage.getItem('item');
 const img = document.querySelector('#img-atv');
-
+const nextButton = document.querySelector('.next-button');
+const previousButton = document.querySelector('.previous-button');
+nextButton.style.display = "none";
+previousButton.style.display = "none";
 switch (qualAtv) {
     case "abc":
         letras();
@@ -361,6 +364,55 @@ function letras() {
         
 
     }
+}
+
+function numeros(){
+    const questions = document.querySelector('.questions');
+    const atvNum = {
+        1: {
+            id: '1',
+            scr: './img/atv-num/1m-removebg-preview.png',
+        },
+        2: {
+            id: '2',
+            scr: './img/atv-num/2b-removebg-preview.png',
+        },
+        3: {
+            id: '3',
+            scr: './img/atv-num/3a-removebg-preview.png',
+        },
+        4: {
+            id: '4',
+            scr: './img/atv-num/4m-removebg-preview.png',
+        },
+        5: {
+            id: '5',
+            scr: './img/atv-num/5b-removebg-preview.png',
+        },
+        6: {
+            id: '6',
+            scr: './img/atv-num/6m-removebg-preview.png',
+        },
+        7: {
+            id: '7',
+            scr: './img/atv-num/7p-removebg-preview.png',
+        },
+        8: {
+            id: '8',
+            scr: './img/atv-num/8l-removebg-preview.png',
+        },
+        9: {
+            id: '9',
+            scr: './img/atv-num/9a-removebg-preview.png',
+        },
+        10: {
+            id: '1',
+            scr: './img/atv-num/10k-removebg-preview.png',
+        }
+    }
+    questions.style.display = "none";
+    img.classList.add('quest-num');
+    defineImg(atvNum);
 }
 
 function defineImg(array) {

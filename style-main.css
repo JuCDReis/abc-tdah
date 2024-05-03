@@ -156,6 +156,12 @@ body{
     background-color: #c8b6ff;
 }
 
+.next-number-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
 .container-atv > img {
     border-radius: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -177,6 +183,11 @@ body{
     margin-bottom: 1em;
 }
 
+.quest-num{
+    background-color: #DEF4F0;
+}
+
+
 .input-ans{
     border-radius: 0.5em;
     border: #2d5672da solid 0.1em;
@@ -194,6 +205,8 @@ body{
     font-size: 1.1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+
 
 .desenhos{
     overflow-x: scroll;
