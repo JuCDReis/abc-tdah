@@ -1,10 +1,11 @@
 const qualAtv = localStorage.getItem('qualAtv');
-const item = localStorage.getItem('item');
+var item = localStorage.getItem('item');
 const img = document.querySelector('#img-atv');
-const nextButton = document.querySelector('.next-button');
-const previousButton = document.querySelector('.previous-button');
-nextButton.style.display = "none";
-previousButton.style.display = "none";
+const btn = document.querySelector('.btn-next');
+const btnNumPrev = document.querySelector('.btn-previous-num');
+const btnNumNext = document.querySelector('.btn-next-num');
+const container = document.querySelector('.container-atv');
+
 switch (qualAtv) {
     case "abc":
         letras();
@@ -27,10 +28,12 @@ function letras() {
     let ansSil;
     let ansVog;
     let ansCons;
+    btnNumNext.style.display = 'none';
+    btnNumPrev.style.display = 'none';
+
     const question = document.querySelector('.question');
     let numQuestion = 0;
     const respostas = document.querySelector('.respostas');
-    const btn = document.querySelector('.btn-next');
     btn.addEventListener('click', ()=>{
         storeAns();
         numQuestion++;
@@ -366,64 +369,91 @@ function letras() {
     }
 }
 
-function numeros(){
-    const questions = document.querySelector('.questions');
-    const atvNum = {
+function numeros() {
+    container.classList.add('atv-num');
+    const question = document.querySelector('.questions')
+    question.style.display = 'none';
+
+    const atvNumeros = {
         1: {
-            id: '1',
-            scr: './img/atv-num/1m-removebg-preview.png',
-        },
+                id: '1',
+                scr: './img/atv-num/1m-removebg-preview.png',
+            },
         2: {
-            id: '2',
-            scr: './img/atv-num/2b-removebg-preview.png',
-        },
+                id: '2',
+                scr: './img/atv-num/2b-removebg-preview.png',
+            },
         3: {
-            id: '3',
-            scr: './img/atv-num/3a-removebg-preview.png',
-        },
+                id: '3',
+                scr: './img/atv-num/3a-removebg-preview.png',
+            },
         4: {
-            id: '4',
-            scr: './img/atv-num/4m-removebg-preview.png',
-        },
+                id: '4',
+                scr: './img/atv-num/4m-removebg-preview.png',
+            },
         5: {
-            id: '5',
-            scr: './img/atv-num/5b-removebg-preview.png',
-        },
+                id: '5',
+                scr: './img/atv-num/5b-removebg-preview.png',
+            },
         6: {
-            id: '6',
-            scr: './img/atv-num/6m-removebg-preview.png',
-        },
+                id: '6',
+                scr: './img/atv-num/6m-removebg-preview.png',
+            },
         7: {
-            id: '7',
-            scr: './img/atv-num/7p-removebg-preview.png',
-        },
+                id: '7',
+                scr: './img/atv-num/7p-removebg-preview.png',
+            },
         8: {
-            id: '8',
-            scr: './img/atv-num/8l-removebg-preview.png',
-        },
+                id: '8',
+                scr: './img/atv-num/8l-removebg-preview.png',
+            },
         9: {
-            id: '9',
-            scr: './img/atv-num/9a-removebg-preview.png',
-        },
+                id: '9',
+                scr: './img/atv-num/9a-removebg-preview.png',
+            },
         10: {
-            id: '1',
-            scr: './img/atv-num/10k-removebg-preview.png',
+                id: '10',
+                scr: './img/atv-num/10k-removebg-preview.png',
+            },
+         
+    } 
+    defineImg(atvNumeros);
+    btnNumNext.addEventListener('click', ()=>{
+        if(item >= 1){
+            btnNumPrev.style.display = 'flex';
         }
-    }
-    questions.style.display = "none";
-    img.classList.add('quest-num');
-    defineImg(atvNum);
+        if(item >= 9){
+            btnNumNext.style.display = 'none';
+            item++;
+            defineImg(atvNumeros);
+        }else{
+            item++;
+            console.log(item);
+            defineImg(atvNumeros);
+        }
+
+})
+    btnNumPrev.addEventListener('click', ()=>{
+        if(item <= 10){
+            btnNumNext.style.display = 'flex';
+        }
+        if(item <= 2){
+            btnNumPrev.style.display = 'none';
+            item--;
+            defineImg(atvNumeros);
+        }else{
+            item--;
+            defineImg(atvNumeros);
+        }
+        
+})
+
 }
 
 function defineImg(array) {
     for (const key in array) {
-        switch (key) {
-            case item:
-                img.src = array[key].scr;
-                break;
-            default:
-                console.error();
-                break;
+        if (key == item){
+            img.src = array[key].scr;
         }
     }
 }
