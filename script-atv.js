@@ -5,6 +5,18 @@ const btn = document.querySelector('.btn-next');
 const btnNumPrev = document.querySelector('.btn-previous-num');
 const btnNumNext = document.querySelector('.btn-next-num');
 const container = document.querySelector('.container-atv');
+let numSil;
+let numVog;
+let numCons;
+let ansSil;
+let ansVog;
+let ansCons;
+let nomeDesenho;
+let ansNomeDes;
+
+const question = document.querySelector('.question');
+let numQuestion = 0;
+const respostas = document.querySelector('.respostas');
 
 switch (qualAtv) {
     case "abc":
@@ -21,19 +33,11 @@ switch (qualAtv) {
         break;
 }
 
+//main functions
 function letras() {
-    let numSil;
-    let numVog;
-    let numCons;
-    let ansSil;
-    let ansVog;
-    let ansCons;
     btnNumNext.style.display = 'none';
     btnNumPrev.style.display = 'none';
 
-    const question = document.querySelector('.question');
-    let numQuestion = 0;
-    const respostas = document.querySelector('.respostas');
     btn.addEventListener('click', ()=>{
         storeAns();
         numQuestion++;
@@ -252,121 +256,7 @@ function letras() {
     defineImg(atvLetras);
     defineInfo(atvLetras);
     askQuestions();
-   
-    function askQuestions() {
-        respostas.style.display = "none";
-        switch (numQuestion) {
-            case 0:
-                question.innerHTML = `
-                <h2>Quantas vogais a palavra possui?</h2>
-                <input type="number" class="input-ans">`
-            break;
-            case 1:
-                question.innerHTML = `
-                <h2>Quantas consoantes a palavra possui?</h2>
-                <input type="number" class="input-ans">`
-            break;
-            case 2:
-                question.innerHTML = `
-                <h2>Quantas silabas a palavra possui?</h2>
-                <input type="number" class="input-ans">`;
-                btn.innerHTML = `
-                Verificar
-                `
-            break;
-        
-            default:
-                checkAnswer();
-                break;
-        }
-    }
-    function storeAns() {
-        let answer = document.querySelector('.input-ans').value;
-        switch (numQuestion) {
-            case 0:
-                ansVog = answer;
-                break;
-            case 1:
-                ansCons = answer;
-                break;
-            case 2:
-                ansSil = answer;
-                break;
-            default:
-                break;
-        }
-    }
-    function defineInfo(array) {
-        for (const index in array) {
-            switch (index) {
-                case item:
-                    numSil = array[index].sil;
-                    numCons = array[index].cons;
-                    numVog = array[index].vog;
-                    break;
-                default:
-                    console.error();
-                    break;
-            }
-        }
-    }  
-    function checkAnswer() {
-        let itensRespostas = document.querySelectorAll(".item-resposta");
-        let respostasUser = document.querySelectorAll(".user");
-        for (let i = 0; i < itensRespostas.length; i++) {
-            let item  = itensRespostas[i];
-            let itemId = item.getAttribute("id");
-            if (itemId != null){
-                switch (itemId) {
-                    case "vog":
-                        item.innerHTML = `<h3>${numVog}</h3>`;
-                        break;
-                    case "cons":
-                        item.innerHTML = `<h3>${numCons}</h3>`;
-                        break;
-                    case "sil":
-                        item.innerHTML = `<h3>${numSil}</h3>`;
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-        for (let i = 0; i < respostasUser.length; i++) {
-            let item  = respostasUser[i];
-            let itemId = item.getAttribute("id");
-            if (itemId != null){
-                switch (itemId) {
-                    case "vog":
-                        item.innerHTML = `<h3>${ansVog}</h3>`;
-                        if(ansVog != numVog){
-                            item.classList.add('user-wrong');
-                        }
-                        break;
-                    case "cons":
-                        item.innerHTML = `<h3>${ansCons}</h3>`;
-                        if(ansCons != numCons){
-                            item.classList.add('user-wrong');
-                        }
-                        break;
-                    case "sil":
-                        item.innerHTML = `<h3>${ansSil}</h3>`;
-                        if(ansSil != numSil){
-                            item.classList.add('user-wrong');
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
 
-        question.style.display = "none";
-        btn.style.display = "none"
-        respostas.style.display = "flex";
-        
-
-    }
 }
 
 function numeros() {
@@ -450,6 +340,63 @@ function numeros() {
 
 }
 
+function desenhos() {
+    btnNumNext.style.display = 'none';
+    btnNumPrev.style.display = 'none';
+
+    btn.addEventListener('click', ()=>{
+        storeAns();
+        numQuestion++;
+        askQuestions();
+    })
+    const atvDesenhos = {
+        urso: {
+                id: 'urso',
+                scr: './img/atv-des/urso-removebg-preview.png',
+                nome: "urso",
+                vog: 2,
+                cons: 2,
+                sil: 2
+            },
+        leao: {
+                id: 'leao',
+                scr: './img/atv-des/leao-removebg-preview.png',
+                nome: "leão",
+                vog: 3,
+                cons: 1,
+                sil: 2
+            },
+        elefante: {
+                id: 'elefante',
+                scr: './img/atv-des/elefante-removebg-preview.png',
+                nome: "elefante",
+                vog: 4,
+                cons: 4,
+                sil: 4
+            },
+        macaco: {
+                id: 'macaco',
+                scr: './img/atv-des/macaco-removebg-preview.png',
+                nome: "macaco",
+                vog: 3,
+                cons: 3,
+                sil: 3
+            },
+        borboleta: {
+                id: 'borboleta',
+                scr: './img/atv-des/borboleta-removebg-preview.png',
+                nome: "borboleta",
+                vog: 4,
+                cons: 5,
+                sil: 4
+            }
+    } 
+    defineImg(atvDesenhos);
+    defineInfo(atvDesenhos);
+    askQuestions();
+}
+
+//secondary functions
 function defineImg(array) {
     for (const key in array) {
         if (key == item){
@@ -457,4 +404,193 @@ function defineImg(array) {
         }
     }
 }
+function askQuestions() {
+    respostas.style.display = "none";
+    if (qualAtv == 'abc') {
+        switch (numQuestion) {
+            case 0:
+                question.innerHTML = `
+                <h2>Quantas vogais a palavra possui?</h2>
+                <input type="number" class="input-ans">`
+            break;
+            case 1:
+                question.innerHTML = `
+                <h2>Quantas consoantes a palavra possui?</h2>
+                <input type="number" class="input-ans">`
+            break;
+            case 2:
+                question.innerHTML = `
+                <h2>Quantas silabas a palavra possui?</h2>
+                <input type="number" class="input-ans">`;
+                btn.innerHTML = `
+                Verificar
+                `
+            break;
+        
+            default:
+                checkAnswer();
+                break;
+        }
+    } else if (qualAtv == 'desenhos'){
+        switch (numQuestion) {
+            case 0:
+                question.innerHTML = `
+                <h2>Qual o nome do animal no desenho?</h2>
+                <input type="text" class="input-ans">`
+            break;
+            case 1:
+                question.innerHTML = `
+                <h2>Quantas vogais a palavra possui?</h2>
+                <input type="number" class="input-ans">`
+            break;
+            case 2:
+                question.innerHTML = `
+                <h2>Quantas consoantes a palavra possui?</h2>
+                <input type="number" class="input-ans">`
+            break;
+            case 3:
+                question.innerHTML = `
+                <h2>Quantas silabas a palavra possui?</h2>
+                <input type="number" class="input-ans">`;
+                btn.innerHTML = `
+                Verificar
+                `
+            break;
+        
+            default:
+                checkAnswer();
+                break;
+        }
+    }
+}
+function storeAns() {
+    let answer = document.querySelector('.input-ans').value;
+    if (qualAtv == 'abc') {
+        switch (numQuestion) {
+            case 0:
+                ansVog = answer;
+                break;
+            case 1:
+                ansCons = answer;
+                break;
+            case 2:
+                ansSil = answer;
+                break;
+            default:
+                break;
+        }
+    } else if(qualAtv == 'desenhos'){
+        switch (numQuestion) {
+            case 0:
+                ansNomeDes = answer;
+                break;
+            case 1:
+                ansVog = answer;
+                break;
+            case 2:
+                ansCons = answer;
+                break;
+            case 3:
+                ansSil = answer;
+                break;
+            default:
+                break;
+        }
+    }
+}
+function defineInfo(array) {
+    for (const index in array) {
+        switch (index) {
+            case item:
+                if (qualAtv == 'abc') {
+                    numSil = array[index].sil;
+                    numCons = array[index].cons;
+                    numVog = array[index].vog;
+                } else {
+                    nomeDesenho = array[index].nome;
+                    numSil = array[index].sil;
+                    numCons = array[index].cons;
+                    numVog = array[index].vog;
+                }
+                break;
+            default:
+                console.error('index not found');
+                break;
+        }
+    }
+}  
+function checkAnswer() {
+    let itensRespostas = document.querySelectorAll(".item-resposta");
+    let respostasUser = document.querySelectorAll(".user");
 
+    for (let i = 0; i < itensRespostas.length; i++) {
+        let item  = itensRespostas[i];
+        let itemId = item.getAttribute("id");
+        if (itemId != null){
+            switch (itemId) {
+                case "nome":
+                    if (qualAtv == 'abc') {
+                        item.style.display = 'none';
+                    }else{
+                        item.innerHTML = `<h3>${nomeDesenho}</h3>`;
+                    }
+                    break;
+                case "vog":
+                    item.innerHTML = `<h3>${numVog}</h3>`;
+                    break;
+                case "cons":
+                    item.innerHTML = `<h3>${numCons}</h3>`;
+                    break;
+                case "sil":
+                    item.innerHTML = `<h3>${numSil}</h3>`;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    for (let i = 0; i < respostasUser.length; i++) {
+        let item  = respostasUser[i];
+        let itemId = item.getAttribute("id");
+        if (itemId != null){
+            switch (itemId) {
+                case "nome":
+                    if (qualAtv == 'abc') {
+                        item.style.display = 'none';
+                    }else{
+                        item.innerHTML = `<h3>${ansNomeDes}</h3>`;
+                        if(ansNomeDes != nomeDesenho){
+                        item.classList.add('user-wrong');
+                        }
+                    }
+                    break;
+                case "vog":
+                    item.innerHTML = `<h3>${ansVog}</h3>`;
+                    if(ansVog != numVog){
+                        item.classList.add('user-wrong');
+                    }
+                    break;
+                case "cons":
+                    item.innerHTML = `<h3>${ansCons}</h3>`;
+                    if(ansCons != numCons){
+                        item.classList.add('user-wrong');
+                    }
+                    break;
+                case "sil":
+                    item.innerHTML = `<h3>${ansSil}</h3>`;
+                    if(ansSil != numSil){
+                        item.classList.add('user-wrong');
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    question.style.display = "none";
+    btn.style.display = "none"
+    respostas.style.display = "flex";
+    
+
+}
