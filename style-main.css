@@ -1,5 +1,5 @@
 body{
-    background-color: #2d5672da;
+    background-color: #0396A6;
 }
 
 .header{
@@ -21,7 +21,7 @@ body{
 }
 
 .p-titulo > h3 > strong{
-    color: #fdaed6;
+    color: #BDF26D;
 }
 
 .section-tdah{
@@ -45,12 +45,12 @@ body{
 }
 
 .principio{
-    background-color: #2d5672da;
+    background-color: #0396A6;
     color:#fff;
     margin:1em;
     padding: 1em 0em 1em 1em;
     border-radius: 0.5em;
-    border: solid 0.3em #40799e;
+    border: solid 0.3em #0396A6;
     clip-path: polygon(0 0,100% 0,100% calc(100% - 25px),calc(100% - 25px) 100%,0 100%);
 }
 
@@ -61,11 +61,11 @@ body{
 
 
 .p1 >h3 {
-    color:#88ecd3ce
+    color:#BDF26D;
 }
 
 .p1:hover{
-    border: solid 0.3em #00b98bce;
+    border: solid 0.3em rgba(165, 230, 67, 0.952)
 }
 
 .p2 >h3 {
@@ -73,19 +73,19 @@ body{
 }
 
 .p2:hover{
-    border: solid 0.3em #ffc404ce;
+    border: solid 0.3em #ffc404ef;
 }
 
 .p3 >h3 {
-    color:#fdaed6;
+    color: #ffcde6;
 }
 
 .p3:hover{
-    border: solid 0.3em #f07bb5ce;
+    border: solid 0.3em #ffaed6;
 }
 
 .prototipo {
-    background-color: #2d5672da;
+    background-color: #D9488B;
     color: #fff;
     margin: 0;
     display: flex;
@@ -116,8 +116,8 @@ body{
 
 .option:hover{
     cursor: pointer;
-    transform: scale(1.05);
-    transition: 0.2s;
+    transform: scale(1.03);
+    transition: 0.1s;
 }
 
 .rodape{
@@ -187,14 +187,14 @@ body{
 
 .input-ans{
     border-radius: 0.5em;
-    border: #2d5672da solid 0.1em;
+    border: #0396A6 solid 0.1em;
     padding: 1em;
     margin-top:1em;
 }
 
 .btn-next{
     border-radius: 0.5em;
-    background-color: #40799e;
+    background-color: #0396A6;
     color: #fff;
     border: 0em;
     padding: 1em 2em;
@@ -252,7 +252,7 @@ body{
 
 .btn-num{
     border-radius: 0.5em;
-    background-color: #40799e;
+    background-color: #0396A6;
     color: #fff;
     border: 0em;
     padding: 1em 1.5em;
@@ -266,4 +266,21 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+/* about */
+.about-us{
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 6em;
+    background-color: #DEF4F0;
+}
+
+.about-us-left{
+    padding: 2em;
+    width: 50%;
+}
+
+.about-us-left > h1{
+    margin-bottom: 0.5em ;
 }
