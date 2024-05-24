@@ -126,11 +126,19 @@ body{
 }
 
 /* abc */
-
+.body-aprenda{
+    background-color: #D9488B;
+}
 .main-container{
     display: grid;
+    background-color: #DEF4F0;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    padding-bottom: 4em;
+    padding: 2em;
+
+}
+
+.item{
+    width:200px;
 }
 
 .item > img {
@@ -163,7 +171,7 @@ body{
 
 .questions{
     color: #fff;
-    display:flex;
+    display:flex;   
     flex-direction: column;
     align-items: end;
 }
